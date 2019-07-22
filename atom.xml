@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>not only code</title>
   
-  
+  <subtitle>not only code , love life</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-07-22T08:44:47.163Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://fangtang0101.github.io/"/>
+  <updated>2019-07-22T09:51:42.117Z</updated>
+  <id>https://fangtang0101.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>fangtang0101</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>test3</title>
+    <link href="https://fangtang0101.github.io/2019/07/22/test3/"/>
+    <id>https://fangtang0101.github.io/2019/07/22/test3/</id>
+    <published>2019-07-22T09:51:42.000Z</published>
+    <updated>2019-07-22T09:51:42.117Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>功能 图片 查看更过 作者 置顶 标签</title>
-    <link href="http://yoursite.com/2019/07/22/test/"/>
-    <id>http://yoursite.com/2019/07/22/test/</id>
+    <link href="https://fangtang0101.github.io/2019/07/22/test/"/>
+    <id>https://fangtang0101.github.io/2019/07/22/test/</id>
     <published>2019-07-22T06:55:58.000Z</published>
     <updated>2019-07-22T08:44:47.163Z</updated>
     
@@ -33,14 +47,14 @@
     </summary>
     
     
-      <category term="文学" scheme="http://yoursite.com/tags/%E6%96%87%E5%AD%A6/"/>
+      <category term="文学" scheme="https://fangtang0101.github.io/tags/%E6%96%87%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/07/22/hello-world/"/>
-    <id>http://yoursite.com/2019/07/22/hello-world/</id>
+    <link href="https://fangtang0101.github.io/2019/07/22/hello-world/"/>
+    <id>https://fangtang0101.github.io/2019/07/22/hello-world/</id>
     <published>2019-07-22T02:29:15.785Z</published>
     <updated>2019-07-22T07:10:21.991Z</updated>
     
