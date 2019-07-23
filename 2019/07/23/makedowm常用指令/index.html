@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+    <meta name="keywords" content="javascript">
+  
+  
+    <meta name="description" content="code about javascript Objective-C ...">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    makedowm常用指令 |
+    
+    not only code</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-makedowm常用指令" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      makedowm常用指令
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/23/makedowm常用指令/" class="article-date">
+  <time datetime="2019-07-23T05:41:35.000Z" itemprop="datePublished">2019-07-23</time>
+</a>
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <blockquote>
+<p>常用makedowm 指令的记录</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="标题-http-support-typora-io-Markdown-Reference"><a href="#标题-http-support-typora-io-Markdown-Reference" class="headerlink" title="// 标题  http://support.typora.io/Markdown-Reference/"></a>// 标题  <a href="http://support.typora.io/Markdown-Reference/" target="_blank" rel="noopener">http://support.typora.io/Markdown-Reference/</a></h2><h1 id="This-is-an-H1"><a href="#This-is-an-H1" class="headerlink" title="This is an H1"></a>This is an H1</h1><h2 id="This-is-an-H2"><a href="#This-is-an-H2" class="headerlink" title="This is an H2"></a>This is an H2</h2><h6 id="This-is-an-H6"><a href="#This-is-an-H6" class="headerlink" title="This is an H6"></a>This is an H6</h6><h2 id="引用块"><a href="#引用块" class="headerlink" title="// 引用块"></a>// 引用块</h2><blockquote>
+<p>This is a blockquote with two paragraphs. This is first paragraph.</p>
+</blockquote>
+<p>// 列表</p>
+<ul>
+<li>Red        无序列表</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<ol>
+<li>Red 有序列表 </li>
+<li>Green</li>
+<li>Blue</li>
+</ol>
+<h2 id="任务列表"><a href="#任务列表" class="headerlink" title="// 任务列表"></a>// 任务列表</h2><ul>
+<li><input disabled type="checkbox"> a task list item</li>
+<li><input disabled type="checkbox"> list syntax required</li>
+<li><input disabled type="checkbox"> normal <strong>formatting</strong>, @mentions, #1234 refs</li>
+<li><input disabled type="checkbox"> incomplete</li>
+<li><input checked disabled type="checkbox"> completed</li>
+</ul>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="// 代码块"></a>// 代码块</h2><p>​​<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = Redcarpet.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br><span class="line">​</span><br></pre></td></tr></table></figure></p>
+<h2 id="公式"><a href="#公式" class="headerlink" title="// 公式"></a>// 公式</h2><p>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="// 表格"></a>// 表格</h2><table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>//</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td>Left-Aligned</td>
+<td>Center Aligned</td>
+</tr>
+<tr>
+<td>:————</td>
+<td>:—————:</td>
+</tr>
+<tr>
+<td>col 3 is</td>
+<td>some wordy text</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td>centered</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td>are neat</td>
+</tr>
+<tr>
+<td>//助脚的使用</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td>You can create footnotes like this[^footnote].</td>
+<td></td>
+</tr>
+<tr>
+<td>[^footnote]: Here is the <em>text</em> of the <strong>footnote</strong>.</td>
+<td></td>
+</tr>
+<tr>
+<td>// 水平线</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+</tr>
+<tr>
+<td>// 链接</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td>This is <a href="http://example.com/" title="Title" target="_blank" rel="noopener">an example</a> inline link.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://example.net/" target="_blank" rel="noopener">This link</a> has no title attribute.</td>
+<td></td>
+</tr>
+<tr>
+<td>// 图片</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td><img src="/path/to/img.jpg" alt="Alt text"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="/path/to/img.jpg" alt="Alt text" title="Optional title"></td>
+<td></td>
+</tr>
+<tr>
+<td>//     强调 斜体 == <em></em></td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td><em>single asterisks</em></td>
+<td></td>
+</tr>
+<tr>
+<td><em>single underscores</em></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="强调-加粗"><a href="#强调-加粗" class="headerlink" title="//     强调 加粗 == "></a>//     强调 加粗 == <strong></strong></h2><p><strong>double asterisks</strong></p>
+<p><strong>double underscores</strong></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="//     代码"></a>//     代码</h2><p>Use the <code>printf()</code> function.</p>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="//     删除线"></a>//     删除线</h2><p><del>Mistaken text.</del> becomes Mistaken text.</p>
+<h2 id="下划线"><a href="#下划线" class="headerlink" title="//     下划线"></a>//     下划线</h2><p><u>Underline</u> becomes Underline.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fangtang0101.github.io/2019/07/23/makedowm常用指令/" data-id="cjyfedz620005sgji9jq8r9tj"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/07/23/文章规划/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">文章规划</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '595343388ea8c45cadc3',
+      clientSecret: '40ec1a1820c507112a597e9e6f10710b407a3002',
+      repo: 'ft-gitalk',
+      owner: 'fangtang0101',
+      admin: ['fangtang0101'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 not only code</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="not only code"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">主页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/categories">Categories</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/tags">标签</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
