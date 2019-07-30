@@ -1569,6 +1569,16 @@ img {
   background: #dd4b39;
   text-shadow: 0 1px #be3221;
 }
+#toc {
+  float: right;
+  background-color: #eee;
+  font-size: 0.8em;
+  color: color-link;
+  margin: 5px;
+}
+#toc .toc {
+  list-style: none;
+}
 .article-gallery {
   position: relative;
 }
