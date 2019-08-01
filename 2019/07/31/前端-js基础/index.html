@@ -118,27 +118,42 @@
 <li><p>变量类型</p>
 <ul>
 <li><p>字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  var name = &apos;fang&apos;   </span><br><span class="line">  var name = `fang xxxxx`; </span><br><span class="line">  注意两者形式不一样  ‘’ 或则 ``;</span><br><span class="line">TODO  两者的区别</span><br></pre></td></tr></table></figure>
-
-
+<p><strong>常用方法一览：</strong></p>
+<ul>
+<li><p>str.length     长度</p>
 </li>
+<li><p>str.trim()     去除左右空格  </p>
+</li>
+<li><p>str.trimLeft() 去除左边空格</p>
+</li>
+<li><p>str.trimRight() 去除右边空格</p>
+</li>
+<li><p>str.charAt(n)   返回第 索引为 n 的字符</p>
+</li>
+<li><p>str.concat(val,….)  拼接字符串</p>
+</li>
+<li><p>str.indexOf(subString)  返回 subString 在 str 中出现的位置 ,没有就是 -1</p>
+</li>
+<li><p>str.substring(from,to)  根据索引获取 子字符串</p>
+</li>
+<li><p>str.slice(start,end)    切片</p>
+</li>
+<li><p>str.toLowerCase()        转小写    </p>
+</li>
+<li><p>str.toUpperCase()        转大写</p>
+</li>
+<li><p>str.split(s,limit)    用 s 分割 str,返回数组  </p>
+<p><strong>如何创建</strong></p>
+<pre><code>  var name = &apos;fang&apos;   
+var name = `fang xxxxx`; 
+  注意两者形式不一样  ‘’ 或则 ``;
+  TODO  两者的区别</code></pre></li>
 </ul>
 </li>
 </ul>
-<pre><code>**常用方法一览：**
-
-- str.length     长度
-- str.trim()     去除左右空格  
-- str.trimLeft() 去除左边空格
-- str.trimRight() 去除右边空格
-- str.charAt(n)   返回第 索引为 n 的字符
-- str.concat(val,....)  拼接字符串
-- str.indexOf(subString)  返回 subString 在 str 中出现的位置 ,没有就是 -1
-- str.substring(from,to)  根据索引获取 子字符串
-- str.slice(start,end)    切片
-- str.toLowerCase()        转小写    
-- str.toUpperCase()        转大写
-- str.split(s,limit)    用 s 分割 str,返回数组  </code></pre><ul>
+</li>
+</ul>
+<ul>
 <li><p>数字</p>
 <ul>
 <li>int 整形 </li>
@@ -152,26 +167,25 @@
 <ul>
 <li><p>创建  <code>var arr = [1,3,&#39;123&#39;]</code></p>
 </li>
+<li><p>常用方法一览</p>
+<ul>
+<li>arr.length    长度</li>
+<li>arr.push()     从尾部增加一个元素</li>
+<li>arr.pop()    从尾部获取一个元素</li>
+<li>arr.unshift() 从头部插入一个元素</li>
+<li>arr.shift()  从头部 移除一个数组</li>
+<li>arr.slice()  切片</li>
+<li>arr.reverse() 反转</li>
+<li>arr.join(‘,’) 将数组元素 用 某个 字符串（此处为 ，） 链接成一个 字符串</li>
+<li>arr.concart(val) 合并数组</li>
+<li>arr.sort()  排序</li>
+</ul>
+</li>
 <li><p>遍历 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(index in arr)&#123;</span><br><span class="line"> console.log(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(index in arr)&#123;</span><br><span class="line"> console.log(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ul>
-<pre><code>- 常用方法一览
-
-  - arr.length    长度
-  - arr.push()     从尾部增加一个元素
-  - arr.pop()    从尾部获取一个元素
-  - arr.unshift() 从头部插入一个元素
-  - arr.shift()  从头部 移除一个数组
-  - arr.slice()  切片
-  - arr.reverse() 反转
-  - arr.join(&apos;,&apos;) 将数组元素 用 某个 字符串（此处为 ，） 链接成一个 字符串
-  - arr.concart(val) 合并数组
-  - arr.sort()  排序</code></pre><ul>
 <li><p>字典</p>
 <ul>
 <li><p>创建</p>
@@ -292,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fangtang0101.github.io/2019/07/31/前端-js基础/" data-id="cjys2a4n80007v0jioz99clsr"
+      <a data-url="https://fangtang0101.github.io/2019/07/31/前端-js基础/" data-id="cjys3pxae000cakji43oa5l3t"
          class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
