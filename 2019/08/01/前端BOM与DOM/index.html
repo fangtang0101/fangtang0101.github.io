@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+    <meta name="keywords" content="javascript">
+  
+  
+    <meta name="description" content="code about javascript Objective-C ...">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    前端BOM与DOM |
+    
+    not only code</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-前端BOM与DOM" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端BOM与DOM
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/08/01/前端BOM与DOM/" class="article-date">
+  <time datetime="2019-08-01T03:24:41.000Z" itemprop="datePublished">2019-08-01</time>
+</a>
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        
+        <p>前端css 简单介绍</p>
+<p>关于DOM 与 BOM 的简单介绍</p>
+<a id="more"></a>
+
+<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><hr>
+<h4 id="DOM的简单介绍"><a href="#DOM的简单介绍" class="headerlink" title="DOM的简单介绍"></a>DOM的简单介绍</h4><ul>
+<li>定义：document Object model （文档对象模型） 理解为 HTML 对应的 对象，html在js 中的体现形式，这样js 才可以操作它</li>
+</ul>
+<h4 id="获取标签对象的三种方法"><a href="#获取标签对象的三种方法" class="headerlink" title="获取标签对象的三种方法"></a>获取标签对象的三种方法</h4><ul>
+<li><p><code>document.getElementById(&#39;#name&#39;)</code>   </p>
+<p>获取 id 为 name 的标签 （一般id 只能有一个，即时有两个，那么也获取到一个）</p>
+</li>
+<li><p><code>document.getElementsByClass(&#39;.name&#39;)</code></p>
+<p>获取 class 为 name 的 div （返回一个数组）</p>
+</li>
+<li><p><code>document.getElementsByTagName(&#39;div&#39;)</code></p>
+<p>货物 标签为 div 的所有标签 （返回一个数组）</p>
+</li>
+</ul>
+<h4 id="如何操作标签对象的内容与属性"><a href="#如何操作标签对象的内容与属性" class="headerlink" title="如何操作标签对象的内容与属性"></a>如何操作标签对象的内容与属性</h4><ul>
+<li><p>获取标签的内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">'c1'</span>);</span><br><span class="line">obj.innerText   <span class="comment">// 获取内容,此内容不包含 标签   xxxx</span></span><br><span class="line">obj.innerHTML   <span class="comment">// 获取内容,此内容包含 标签   &lt;a href='#'&gt;xxxx&lt;/a&gt;</span></span><br><span class="line"></span><br><span class="line">obj.innerText = <span class="string">'新设置的内容'</span>; <span class="comment">//设置内容 </span></span><br><span class="line">obj.innerHTML = <span class="string">"&lt;a href='#'&gt;设置的内容&lt;/a&gt;"</span>; <span class="comment">//设置内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取与设置 input系列标签中 value 值</span></span><br><span class="line">obj.value</span><br><span class="line">obj.value = <span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>获取标签的属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">'c1'</span>);</span><br><span class="line"></span><br><span class="line">obj.getAttribute(<span class="string">'id'</span>)  		<span class="comment">// 获取属性</span></span><br><span class="line">obj3.setAttribute(<span class="string">'k2'</span>, <span class="string">'v2'</span>);	 <span class="comment">//设置属性</span></span><br><span class="line">obj3.removeAttribute(<span class="string">'k1'</span>)		<span class="comment">// 删除属性</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="如何设置css-样式"><a href="#如何设置css-样式" class="headerlink" title="如何设置css 样式"></a>如何设置css 样式</h4><ul>
+<li><p>大颗粒度设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d1.classList           		<span class="comment">// 获取d1 标签的所有 class 的类 返回数组</span></span><br><span class="line">d1.classList.add(<span class="string">'c1'</span>) 		<span class="comment">// d1 添加 c1 的样式</span></span><br><span class="line">d1.classList.remove(<span class="string">'c1'</span>) 	<span class="comment">// d1 去除 c1 的样式</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>细颗粒度设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.style.color = <span class="string">'red'</span>		 </span><br><span class="line">obj.style.fontSize = <span class="string">'20px'</span>	  <span class="comment">// font-size: 20px; 对应</span></span><br><span class="line"><span class="comment">// 1. 值 全部是 字符串形式</span></span><br><span class="line"><span class="comment">// 2. 当属性 有 - ，那么转换成 驼峰式</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><ul>
+<li><p>常见事件  <strong>注意：事件的名字 不要驼峰</strong></p>
+<ol>
+<li>onclick                  点击事件</li>
+<li>onmouseover      鼠标放上去，触发事件</li>
+<li>onmouseout      鼠标移开  触发函数</li>
+<li>onfouces           获取焦点（input）</li>
+<li>onblur                失去焦点</li>
+</ol>
+</li>
+<li><p>事件如何绑定方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line">&lt;input type=<span class="string">"text"</span> onclik=<span class="string">"f1();"</span> &gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line">&lt;input type=<span class="string">"text"</span>  id=<span class="string">'i1'</span>&gt;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">'i1'</span>)；</span><br><span class="line">obj.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="window-常见方法"><a href="#window-常见方法" class="headerlink" title="window 常见方法"></a>window 常见方法</h4><ul>
+<li><code>alert(123)</code> // 弹框显示123  会阻塞线程</li>
+<li><code>let res = confirm(&#39;确定删除吗？&#39;)</code> // 确认框，返回 true false  会阻塞线程</li>
+<li><code>open(&#39;www.baidu.com&#39;)</code>  //  打开新窗口</li>
+<li><code>location.href=&#39;www.baidu.com&#39;</code>  //  当前窗口跳转</li>
+<li><code>location.reload()</code>    //   刷新当前页面</li>
+</ul>
+<h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3><hr>
+<p><strong>BOM（浏览器对象模型）是浏览器本身的一些信息的设置和获取</strong>    比如获取浏览器高度，宽度，跳转地址等</p>
+<ul>
+<li><p>navigator  获取浏览器特征</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ua = navigator.user.Agent</span><br><span class="line"><span class="keyword">let</span> isChorm = ua.indexOf(<span class="string">'chrom'</span>)  <span class="comment">// 判断是否是 chorm</span></span><br><span class="line"><span class="comment">// 通常用于判断 手机 的 浏览器等等</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>screen  获取屏幕信息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(screen.width)</span><br><span class="line"><span class="built_in">console</span>.log(screen.height)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>location 窗口URl 地址相关操作，获取网址 协议 path 参数 hash 等</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例如当前网址是 https://juejin.im/timeline/frontend?a=10&amp;b=10#some</span></span><br><span class="line"><span class="built_in">console</span>.log(location.href)  <span class="comment">// https://juejin.im/timeline/frontend?a=10&amp;b=10#some</span></span><br><span class="line"><span class="built_in">console</span>.log(location.protocol) <span class="comment">// https:</span></span><br><span class="line"><span class="built_in">console</span>.log(location.pathname) <span class="comment">// /timeline/frontend</span></span><br><span class="line"><span class="built_in">console</span>.log(location.search) <span class="comment">// ?a=10&amp;b=10</span></span><br><span class="line"><span class="built_in">console</span>.log(location.hash) <span class="comment">// #some</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>history 浏览器 前进与后退等</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.back()</span><br><span class="line">history.forward()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fangtang0101.github.io/2019/08/01/前端BOM与DOM/" data-id="cjysajnyt0007ucjiwyv9av6g"
+         class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/07/31/前端-js基础/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">前端-js基础</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '595343388ea8c45cadc3',
+      clientSecret: '40ec1a1820c507112a597e9e6f10710b407a3002',
+      repo: 'ft-gitalk',
+      owner: 'fangtang0101',
+      admin: ['fangtang0101'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 not only code</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="not only code"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">主页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/categories">Categories</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/tags">标签</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
