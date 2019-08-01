@@ -189,30 +189,110 @@
 <li>对象 （object）</li>
 </ul>
 <h3 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3. 运算符"></a>3. 运算符</h3><ul>
-<li>算数运算符</li>
-<li>比较运算符</li>
-<li>赋值运算符</li>
+<li><p>算数运算符</p>
+<p><code>+ - * / % a++ a--</code></p>
+</li>
+<li><p>比较运算符</p>
+<p><code>&gt; &gt;= &lt; &lt;= != !== == ===</code> </p>
+<p><strong>== 与 === 的区别</strong></p>
+<ul>
+<li><p>== 当对比的对象为 基本类型的时候，会先将 他们转换为 相同的 数据类型 再比对，若 一个是 基本数据类型 另一个是 引用类型，那么 不转换</p>
+</li>
+<li><p>=== 先看类型是否相同，然后再比较 值是否相等，若都是 引用类型，那么是对比的内存地址是否相等，而不是 值相等</p>
+</li>
+<li><p>eg TODO 详细理解请看这篇文章</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log( 2 == '2')  // true</span><br><span class="line">console.log( 2 === '2') // false</span><br><span class="line">console.log(&#123;name:'fang'&#125; == &#123;name:'fang'&#125;)  // true</span><br><span class="line">console.log(&#123;name:'fang'&#125; === &#123;name:'fang'&#125;) // false</span><br><span class="line">let a1 = &#123;name:'fang'&#125;;</span><br><span class="line">let a2 = a1;</span><br><span class="line">console.log(a1 === a2)   // true</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>赋值运算符</p>
+<p><code>= += -= *= /=</code></p>
+</li>
 </ul>
 <h3 id="4-流程控制"><a href="#4-流程控制" class="headerlink" title="4. 流程控制"></a>4. 流程控制</h3><ul>
-<li>顺序控制</li>
-<li>分支</li>
-<li>循环</li>
+<li><p>顺序控制 </p>
+<p>代码自上而下运行 就是 顺序控制，90%的代码都是这样的，只是我们没有 特别注意到</p>
+</li>
+<li><p>分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">方式一：</span><br><span class="line">if(表达式判断)&#123;...&#125;elseif(表达式判断)&#123;...&#125;else&#123;...&#125;</span><br><span class="line">方式二：</span><br><span class="line">swith(表达式)&#123;</span><br><span class="line">	case n: // n为表达式的值</span><br><span class="line">	代码块</span><br><span class="line">	break;</span><br><span class="line">	case m: // m为表达式的值</span><br><span class="line">	代码块</span><br><span class="line">	break;</span><br><span class="line">     default:</span><br><span class="line">     默认代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>循环</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</span><br><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="keyword">for</span>(i <span class="keyword">in</span> arr)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(i,arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i,arr[i]);                      </span><br><span class="line">&#125;</span><br><span class="line">                               </span><br><span class="line"> <span class="comment">//字典</span></span><br><span class="line"><span class="keyword">var</span> dic = &#123;<span class="attr">name</span>:<span class="string">'fang'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;</span><br><span class="line"><span class="keyword">for</span>(key <span class="keyword">in</span> arr)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(key,arr[ke]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
 </ul>
 <h3 id="5-函数"><a href="#5-函数" class="headerlink" title="5. 函数"></a>5. 函数</h3><ul>
-<li>如何创建</li>
-<li>参数</li>
-<li>回调函数</li>
-<li>闭包</li>
+<li><p>如何创建</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params">参数</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建函数'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">test1() <span class="comment">// 调用</span></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line"><span class="keyword">let</span> test2 =  <span class="function"><span class="keyword">function</span> (<span class="params">参数</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建函数'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">&#125;</span><br><span class="line">test2()<span class="comment">// 调用</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>参数</p>
+<ul>
+<li>js 中函数的参数 只能 位置传参，不能关键字传参</li>
+<li>参数可以设置默认值 （ES6 新功能）</li>
+<li>在函数内部 通过 arguments（数组) 可实现 可变长参数的传递 </li>
+</ul>
+</li>
+<li><p>回调函数</p>
+<p><strong>就是将 函数 作为另一个函数的参数，然后在函数内部 特定的时候，再调用 参数函数</strong></p>
+<ul>
+<li><p>js 中 没有多线程，所以 回调函数是做为 实现异步 的一个方法</p>
+</li>
+<li><p>js 代码执行 的时候  是没有多线程的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// .... 网络请求 代码</span></span><br><span class="line">    cb(success);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params">success</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// .... 处理网络请求成功回来的代码，实现异步</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// cb 只是个名字而已，没有强制规定名字，只是大家一般这么远叫而已</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>闭包</p>
+<p><strong>能够 获取函数内部 数据（变量）的函数</strong></p>
+<p><strong>其实是为了解决 作用域问题，因为函数执行完之后，内部变量就销毁，此时需要另外一个函数做引用内部变量，那么就不会被 回收</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//  ... 其他代码</span></span><br><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li>TODO 关于函数的参数 ，回调函数，闭包 等 细节内容，请看这里</li>
 </ul>
 <h3 id="6-类"><a href="#6-类" class="headerlink" title="6. 类"></a>6. 类</h3><ul>
-<li>js 中的 说明</li>
-<li>如何创建 与 使用</li>
+<li><p>js 中的 说明</p>
+<ul>
+<li>js 中类的概念 比较 薄弱，ES6 之前创建 一个类也非常的简单，ES6 创建类的方式 接近于其他强类型语言，也就是说大趋势是 js 慢慢规范了</li>
+</ul>
+</li>
+<li><p>如何创建 与 使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ES6 之前：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dog</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    eat:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'i can eat'</span>,<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="keyword">new</span> dog(<span class="string">'小黑'</span>)；</span><br><span class="line">hei.eat()</span><br><span class="line"><span class="comment">// 注意：当不用 new 的时候，dog 就是一个 普通函数，当用new 那么dog 就是一个构造函数，是不是很崩溃，所以 有了新的改革</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">dog</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name)&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    eat()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'i can eat'</span>,<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>TODO：关于 ES6 与之前的 类的区别，继承的实现等一些列问题，看这里</p>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fangtang0101.github.io/2019/07/31/前端-js基础/" data-id="cjyr2jlrz000a4sjifz0i2soj"
+      <a data-url="https://fangtang0101.github.io/2019/07/31/前端-js基础/" data-id="cjys2a4n80007v0jioz99clsr"
          class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
