@@ -94,13 +94,98 @@
 </li>
 </ul>
 <h4 id="jQuery-属性查找-与-操作"><a href="#jQuery-属性查找-与-操作" class="headerlink" title="jQuery 属性查找 与 操作"></a>jQuery 属性查找 与 操作</h4><ul>
-<li>三种基本选择器</li>
-<li>层级选择器</li>
-<li>基本筛选器</li>
-<li>操作类名</li>
-<li>表单筛选器</li>
-<li>筛选器方法</li>
-<li>链式操作</li>
+<li><p>三种基本选择器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. id 选择器</span></span><br><span class="line">$(<span class="string">'#id'</span>)</span><br><span class="line"><span class="comment">//2. 标签选择器</span></span><br><span class="line">$(<span class="string">'div'</span>)</span><br><span class="line"><span class="comment">//3. class 选择器</span></span><br><span class="line">$(<span class="string">'.className'</span>)</span><br><span class="line"><span class="comment">//4. 配合使用</span></span><br><span class="line">$(<span class="string">'div.c1'</span>)  <span class="comment">// 找到 便签为 div 并且 clss 为 c1 的元素</span></span><br><span class="line">$(<span class="string">'div .c1'</span>)	 <span class="comment">// 找到 标签为 div 下面的所有 class 为c1 的元素</span></span><br><span class="line"><span class="comment">//5. 所有元素选择器</span></span><br><span class="line">$(<span class="string">'*'</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>层级选择器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'x y'</span>)	<span class="comment">// x 所有后代中 y </span></span><br><span class="line">$(<span class="string">'x &gt; y'</span>)	<span class="comment">// x 所有儿子 中的 y</span></span><br><span class="line">$(<span class="string">'x + y'</span>)	<span class="comment">// 紧挨着 x 后面的 y （所有的弟弟）</span></span><br><span class="line">$(<span class="string">'x ~ y'</span>)	<span class="comment">// x 所有 兄弟 中 y   （所有 哥哥 和 弟弟）</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>基本筛选器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">:first			<span class="comment">// 第一个</span></span><br><span class="line">:last			<span class="comment">// 最后一个</span></span><br><span class="line">:eq(index)		<span class="comment">// 索引 为 index 的元素</span></span><br><span class="line">:even 			<span class="comment">// 匹配 索引为 偶数的元素 （从0开始）</span></span><br><span class="line">:odd			<span class="comment">//匹配 所以为  奇数的元素</span></span><br><span class="line">:gt(index)		<span class="comment">//	索引大于 index 的元素</span></span><br><span class="line">:lt(index)		<span class="comment">//  索引小于 index 的元素</span></span><br><span class="line">:not(元素选择器)	<span class="comment">//  移除所有 满足 not 条件的 元素</span></span><br><span class="line">：has(元素选择器)	<span class="comment">// 只选择 所有 包含 满足has 条件的 元素 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//eg</span></span><br><span class="line">$(<span class="string">"div:has(h1)"</span>)<span class="comment">// 找到所有后代中有h1标签的div标签</span></span><br><span class="line">$(<span class="string">"div:has(.c1)"</span>)<span class="comment">// 找到所有后代中有c1样式类的div标签</span></span><br><span class="line">$(<span class="string">"li:not(.c1)"</span>)<span class="comment">// 找到所有不包含c1样式类的li标签</span></span><br><span class="line">$(<span class="string">"li:not(:has(a))"</span>)<span class="comment">// 找到所有后代中不含a标签的li标签</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>属性选择器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[attribute]			<span class="comment">// 有此属性的 元素</span></span><br><span class="line">[arrribute=value]  	<span class="comment">//  属性为 value 的元素</span></span><br><span class="line">[arribute!=value] 	<span class="comment">//  属性 不为 value 的元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//eg</span></span><br><span class="line">&lt;input type=<span class="string">"text"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"password"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"checkbox"</span>&gt;</span><br><span class="line">$(<span class="string">"input[type='checkbox']"</span>);<span class="comment">// 取到checkbox类型的input标签</span></span><br><span class="line">$(<span class="string">"input[type!='text']"</span>);<span class="comment">// 取到类型不是text的input标签</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>操作类名</p>
+</li>
+<li><p>表单筛选器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">:text</span><br><span class="line">:password</span><br><span class="line">:file</span><br><span class="line">:radio</span><br><span class="line">:checkbox</span><br><span class="line"></span><br><span class="line">:submit</span><br><span class="line">:reset</span><br><span class="line">:button</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//表单对象属性:</span></span><br><span class="line">:enabled</span><br><span class="line">:disabled</span><br><span class="line">:checked</span><br><span class="line">:selected</span><br><span class="line"></span><br><span class="line"><span class="comment">// eg1</span></span><br><span class="line">&lt;form&gt;</span><br><span class="line">  &lt;input name=<span class="string">"email"</span> disabled=<span class="string">"disabled"</span> /&gt;</span><br><span class="line">  &lt;input name=<span class="string">"id"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">$("input:enabled")  /</span><span class="regexp">/ 找到可用的input标签</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ eg2</span></span><br><span class="line"><span class="regexp">&lt;select id="s1"&gt;</span></span><br><span class="line"><span class="regexp">  &lt;option value="beijing"&gt;北京市&lt;/</span>option&gt;</span><br><span class="line">  &lt;option value=<span class="string">"shanghai"</span>&gt;上海市&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">  &lt;option selected value="guangzhou"&gt;广州市&lt;/</span>option&gt;</span><br><span class="line">  &lt;option value=<span class="string">"shenzhen"</span>&gt;深圳市&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>select&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="string">":selected"</span>)  <span class="comment">// 找到所有被选中的option</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>筛选器方法</p>
+<ul>
+<li><p>下一个元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//具体意思 ，看到方法名字 就知道了</span></span><br><span class="line">$(<span class="string">'#id'</span>).next()</span><br><span class="line">$(<span class="string">'#id'</span>).nextAll()</span><br><span class="line">$(<span class="string">'#id'</span>).nextUntil(<span class="string">'#i1'</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>上一个元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#id'</span>).prev()</span><br><span class="line">$(<span class="string">'#id'</span>).prevAll()</span><br><span class="line">$(<span class="string">'#id'</span>).prevUntil(<span class="string">'#i1'</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>父亲元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#id'</span>).parent()</span><br><span class="line">$(<span class="string">'#id'</span>).parents()</span><br><span class="line">$(<span class="string">'#id'</span>).parentsUntil(<span class="string">'#i1'</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>儿子&amp;兄弟元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#id"</span>).children();<span class="comment">// 儿子们</span></span><br><span class="line">$(<span class="string">"#id"</span>).siblings();<span class="comment">// 兄弟们</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>查找</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div"</span>).find(<span class="string">"p"</span>)  </span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line">$(<span class="string">'div p'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//筛选</span></span><br><span class="line">$(<span class="string">'div'</span>).filter(<span class="string">'.c1'</span>)  <span class="comment">// 从结果集 中过滤 有c1 的样式</span></span><br><span class="line"></span><br><span class="line">.first() <span class="comment">// 获取匹配的第一个元素</span></span><br><span class="line">.last() <span class="comment">// 获取匹配的最后一个元素</span></span><br><span class="line">.not() <span class="comment">// 从匹配元素的集合中删除与指定表达式匹配的元素</span></span><br><span class="line">.has() <span class="comment">// 保留包含特定后代的元素，去掉那些不含有指定后代的元素。</span></span><br><span class="line">.eq() <span class="comment">// 索引值等于指定值的元素</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>链式操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 一行代码实现第一个p变红，第二个p变绿</span><br><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;p&gt;p1&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">	&lt;p&gt;p2&lt;/</span>p&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">$('div&gt;p').first().addclass('c1').next().addclass('c2');</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
 </ul>
 <h4 id="jQuery-文档处理"><a href="#jQuery-文档处理" class="headerlink" title="jQuery 文档处理"></a>jQuery 文档处理</h4><p> 主要就是 HTML 标签的增删改查</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 标签内部 尾部 追加元素</span></span><br><span class="line">$(<span class="string">'#d1'</span>).append(pEle);</span><br><span class="line">$pEle.appendTo($(<span class="string">'#d1'</span>))</span><br><span class="line"><span class="comment">//2. 标签内部 头部 增加元素</span></span><br><span class="line">$(<span class="string">'#d1'</span>).prepend(pEle)</span><br><span class="line">$pEle.prependTo($(<span class="string">'#d1'</span>))</span><br><span class="line"><span class="comment">//3. 标签外部 下面 添加元素  </span></span><br><span class="line">$(A).after(B)          	<span class="comment">// 把B放到A的后面</span></span><br><span class="line">$(A).insertBefore(B)    <span class="comment">// A 插到 B 前面</span></span><br><span class="line"><span class="comment">//4. 标签外部 上面 添加元素</span></span><br><span class="line">$(A).before(B)			<span class="comment">// 把B放到A的前面</span></span><br><span class="line">$(A).insertBefore(B)	<span class="comment">// A 插到 B前面</span></span><br><span class="line"><span class="comment">//5. 替换标签</span></span><br><span class="line">replaceWith() 			<span class="comment">// 什么被什么 替换</span></span><br><span class="line">replaceAll()			<span class="comment">// 拿什么替换什么</span></span><br></pre></td></tr></table></figure>
@@ -167,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fangtang0101.github.io/2019/08/02/前端基础-框架-jquery/" data-id="cjytk9zoq000834jij8adczve"
+      <a data-url="https://fangtang0101.github.io/2019/08/02/前端基础-框架-jquery/" data-id="cjytoqq22000d78ji4x1fvxkp"
          class="article-share-link">分享</a>
       
     </footer>
