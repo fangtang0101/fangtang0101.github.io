@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[js环境之node]]></title>
     <url>%2F2019%2F08%2F05%2Fjs%E7%8E%AF%E5%A2%83%E4%B9%8Bnode%2F</url>
-    <content type="text"><![CDATA[node 简介以及安装教程，多图 node 是什么 node 是 node.js 的运行环境，但是 随着 前端 的 不断发展，不管你搞不搞后端，node 的包管理等各个理念已经深入人心，基本作为必备技能之一 npm 是 node 自带的包管理工具，我们只需要下载 node，那么就集成了 npm 的安装 本机坏境说明 window 64node &amp; npm 如何查看版本 12node -vnpm -v node 如何卸载由于本机已经安装好，所以我们先从卸载开始 node 如何下载安装 常见问题说明]]></content>
+    <content type="text"><![CDATA[node 简介以及安装教程，多图 node 是什么 node 是 node.js 的运行环境，但是 随着 前端 的 不断发展，不管你搞不搞后端，node 的包管理等各个理念已经深入人心，基本作为必备技能之一 npm 是 node 自带的包管理工具，我们只需要下载 node，那么就集成了 npm 的安装 本机坏境说明 window 64node &amp; npm 如何查看版本 12node -vnpm -v node 如何卸载由于本机已经安装好，所以我们先从卸载开始 node 如何下载安装 常见问题说明 如何将路径加到path里面 很多时候也不知道什么原因，安装成功，但是不能全局使用，此时需要手动将 node 放到path 路径李敏 如何判断 是否已经安装成功 1234//1/cd 进 node 的安装目录 （我的是）F:\cx\node//注意 window 切换 根目录 先 F: 回车 node -v //如果安装好了，那么会显示版本号，如果显示没有此命令，那么就是node 没有安装好 如何查看是否已经加入path 路径 直接打开cmd 输入 node-v，如果path 已经添加好，那么会显示版本号，如果没有此命令，那么就是path没有node路径 如何添加到 全局变量中 计算机（右击）- 属性（高级系统设置） - 高级 - 环境变量 - 系统变量 找到 path 双击 在最后 追加 ：F:\cx\node ​ ​ ​ ​]]></content>
   </entry>
   <entry>
     <title><![CDATA[django快速体验]]></title>
