@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fangtang0101.github.io/"/>
-  <updated>2019-08-02T09:47:08.268Z</updated>
+  <updated>2019-08-05T09:29:51.912Z</updated>
   <id>https://fangtang0101.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js环境之node</title>
+    <link href="https://fangtang0101.github.io/2019/08/05/js%E7%8E%AF%E5%A2%83%E4%B9%8Bnode/"/>
+    <id>https://fangtang0101.github.io/2019/08/05/js环境之node/</id>
+    <published>2019-08-05T08:58:50.000Z</published>
+    <updated>2019-08-05T09:29:51.912Z</updated>
+    
+    <content type="html"><![CDATA[<p>node 简介以及安装教程，多图</p><a id="more"></a><h4 id="node-是什么"><a href="#node-是什么" class="headerlink" title="node 是什么"></a>node 是什么</h4><ul><li>node 是 node.js 的运行环境，但是 随着 前端 的 不断发展，不管你搞不搞后端，node 的包管理等各个理念已经深入人心，基本作为必备技能之一</li><li>npm 是 node 自带的包管理工具，我们只需要下载 node，那么就集成了 npm 的安装</li></ul><h4 id="本机坏境说明"><a href="#本机坏境说明" class="headerlink" title="本机坏境说明"></a>本机坏境说明</h4><ul><li>window 64<h4 id="node-amp-npm-如何查看版本"><a href="#node-amp-npm-如何查看版本" class="headerlink" title="node &amp; npm 如何查看版本"></a>node &amp; npm 如何查看版本</h4></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/1.png" alt="Alt text" title="Optional title"></p><h4 id="node-如何卸载"><a href="#node-如何卸载" class="headerlink" title="node 如何卸载"></a>node 如何卸载</h4><p><strong>由于本机已经安装好，所以我们先从卸载开始</strong></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/2.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/3.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/4.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/5.png" alt="Alt text" title="Optional title"></p><h4 id="node-如何下载安装"><a href="#node-如何下载安装" class="headerlink" title="node 如何下载安装"></a>node 如何下载安装</h4><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/6.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/7.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/8.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/9.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/10.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/11.png" alt="Alt text" title="Optional title"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/js/node/12.png" alt="Alt text" title="Optional title"></p><h4 id="常见问题说明"><a href="#常见问题说明" class="headerlink" title="常见问题说明"></a>常见问题说明</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;node 简介以及安装教程，多图&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>django快速体验</title>
+    <link href="https://fangtang0101.github.io/2019/08/05/django%E5%BF%AB%E9%80%9F%E4%BD%93%E9%AA%8C/"/>
+    <id>https://fangtang0101.github.io/2019/08/05/django快速体验/</id>
+    <published>2019-08-05T05:53:03.000Z</published>
+    <updated>2019-08-05T05:53:03.038Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>前端基础-框架-jquery</title>
