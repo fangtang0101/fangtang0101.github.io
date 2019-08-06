@@ -18,7 +18,7 @@
   <entry>
     <title><![CDATA[django快速体验]]></title>
     <url>%2F2019%2F08%2F05%2Fdjango%E5%BF%AB%E9%80%9F%E4%BD%93%E9%AA%8C%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[本文主要介绍 Django的安装 并 快速体验 快速体验前提注意事项 计算机名字 不能含有中文 尽量 用 Pycharm 单独用窗口打开一个工程 项目文件夹不要有中文 django 尽量选择 1.11.11 的版本（比较稳定） pip 安装 并 体验1234$ pip3 install django==1.11.11 //安装 指定版本的 django$ django-admin startproject 项目名$ django-admin startapp 应用名$ django-admin start 应用名 （注意需要cd 到 应用名的目录下面） Pycharm 安装 并体验直接通过 创建一个 django 项目，会自动检测安装 django，默认会安装 最新版本，然后通过修改版本号码，修改django的版本 如何判断 是否 成功当看到控制台显示网站，点击浏览，看到 页面上显示 it worked 成功了]]></content>
   </entry>
   <entry>
     <title><![CDATA[前端基础-框架-jquery]]></title>
