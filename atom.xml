@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fangtang0101.github.io/"/>
-  <updated>2019-08-05T09:50:48.987Z</updated>
+  <updated>2019-08-05T10:02:31.977Z</updated>
   <id>https://fangtang0101.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python之Pycharm配置与安装</title>
+    <link href="https://fangtang0101.github.io/2019/08/05/python%E4%B9%8BPycharm%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%AE%89%E8%A3%85/"/>
+    <id>https://fangtang0101.github.io/2019/08/05/python之Pycharm配置与安装/</id>
+    <published>2019-08-05T10:02:31.000Z</published>
+    <updated>2019-08-05T10:02:31.977Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python之python环境配置安装</title>
+    <link href="https://fangtang0101.github.io/2019/08/05/python%E4%B9%8Bpython%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85/"/>
+    <id>https://fangtang0101.github.io/2019/08/05/python之python环境配置安装/</id>
+    <published>2019-08-05T10:01:41.000Z</published>
+    <updated>2019-08-06T02:33:45.039Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于python 的安装</p><a id="more"></a><p><strong>网址</strong><a href="https://www.python.org/downloads/windows/" title="Title" target="_blank" rel="noopener">点击这里</a></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/python/python%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/1.png" alt="Alt text"></p><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p><img src="https://github.com/fangtang0101/ft-images/raw/master/python/python%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/2.png" alt="Alt text"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/python/python%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/3.png" alt="Alt text"></p><p><img src="https://github.com/fangtang0101/ft-images/raw/master/python/python%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/4.png" alt="Alt text"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于python 的安装&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>js环境之node</title>
