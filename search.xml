@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql基础-其他知识]]></title>
+    <url>%2F2019%2F08%2F14%2Fmysql%E5%9F%BA%E7%A1%80-%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql基础-基础操作]]></title>
+    <url>%2F2019%2F08%2F14%2Fmysql%E5%9F%BA%E7%A1%80-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[本文主要介绍 mysql 的基本操作，包括 数据库 增删改查 表的增删改查 等 数据库的操作 显示数据库1show databases; 创建数据库1created database db1（数据库名字）; 使用数据库1use db1; //使用数据库 相当于 双击 打开 excel 删除数据库 慎用1drop database db1; 删除数据库 修改数据库名没有直接修改数据库名字，只能先 删除 后 创建 用户管理 授权管理 MySQL数据类型 数值型 字符型 时间类型 特殊类型NULL 数据表的操作 创建表123456789101112create table 表名( 列1 列属性[是否为null 默认值]， 列2 列属性[是否为null 默认值]， ... 列3 列属性 （最后一个 不要有 ,）)engine = 存储引擎 charset = 字符集eg:create table t1( id int auto_increment primary key, (主键的写法) name char(32) not null default '', (不为空，默认值为 '') create_time datetime not null default '1970-01-01 00:00:00')engine = Innodb charset = utf8 删除表 慎用，不可恢复1drop table t1; 清空表123delete from t1;truncate table t1;// 两个都可以 修改表12345678// 修改列属性alter table 表名(t1) change 老列名(name) 新列名(username char(32))// 添加一列alert table 表名(t1) change 新列名(age int)// 删除一列alter table 表名(t1) drop 老列名(age) 查询表1234// 查询数据库中所有的 tableshow databases;// 查看 创建表的语句show create table t1; 表中具体数据操作 增123insert into 表名（列1，列2，...,列n） values （值1，值2，...,值n），（值1，值2，...,值n）；eg：insert into t1 (name,age) values (&apos;zhangsan&apos;,19),(&apos;lisi&apos;,40); 删123delete into 表名（t1）； // 表删除后 再次插入数据， id 在以前历史数据的基础上 自增truncate t1; // 表删除后 再次插入数据 id 从 1 开始delete from t1 where id=10; //删除 符合条件的数据 改12345// 将符合条件的 数据 值改掉，如果没有查询条件，那么 表中的所有数据 全部改掉update 表名 set 列名1=值1，...,列名n=值n where xxx (查询条件) eg:update t1 set name=&apos;wangwu&apos;,age=20 where id&gt;2; 基本查询1select * from t1; //查询所用 高级查询 where 条件查询 123456where 后面跟的是 条件语句支持的 运算符有 &gt; &lt; = and or (not in) (bettwen .. in ..) in eg：slect * from t1 where id&gt;13 and id&lt;30; //搜索 id 大于13 并且 id 小于 30 的所有数据slect * from t1 where bettwen 13 in 30; //搜索 id 13-30 的所有数据slect * from t1 where id in (14,15); //搜索 id 位于14,15 之中 的所有数据 通配符匹配 12select * from t1 where name like &apos;j%&apos;; // %: 匹配字符创后所有的字符（以为 j 开头就行）select * from t1 where name like &apos;j_&apos;; // _ : 只匹配一个字符 （只匹配 j 这个字符） 限制条件 主要用于 分页查询 123456789select * from t1 limit 索引偏移量(n)，取多少条(offset)；eg：select * from t1 limit 0, 10;分页的SQL语句page：第几页size：每页多少条 （相当于 offset）select * from t1 limit (page-1)*offset, offset; 排序 12order by 列名 desc/asc (降序/升序)select * from t1 order by age desc, id asc; // 先按照 age 降序，若 age相等 再按照 id 升序 分组 1234567891011121314151617181920group by 列名聚合函数： count() ： 技术 sum() ： 求和 max() ： 最大值 min() ： 最小值 avg() ： 平均值 eg：select age, count(age) from t1 group by age; //按照age进行分组 并 展示 每组的个数select age, sum(age) from t1 group by age; // 按照age 分组，并计算每组的 和 并展示 having: 分组完 对结果做二次筛选// 按照 age 分组，并计算每组的个数，再筛选 个数 大于 2 的 分组select age, count(id) as cnt from t1 group by age having cnt&gt;2;ps：1. where 是对原生的列 进行 筛选2. having 是对 分组后的结果进行 筛选 连接查询 作用 &amp; 场景 左连接 右连接 内连接 子查询 场景 说明 用法 存储引擎和字符集 存储引擎 字符集]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql基础-数据库简介与安装启动]]></title>
+    <url>%2F2019%2F08%2F14%2Fmysql%E5%9F%BA%E7%A1%80-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[数据库的简单介绍 以及 mysql 的安装 与 启动 知识 数据库简介数据库就是一个帮助我们管理 数据的 软件 当然管理数据 你也可以 用 excel ，但是 MySQL 相对而言 肯定是 相对 有很多优势，后面会介绍 数据库的分类 关系型数据库 有约束 基于 硬盘 存储 具体软件： MySQL SQLServer(微软 c# .net) Oracle（甲骨文 java）SQLlite DB2 mariadb pgsal 非关系型数据库 没有约束 （key -&gt; value 的形式） 基于内存 存储 具体软件： mongodb redies Memcache MySQL 数据库安装mysql 分为 服务端 socket 与 客户端client 下载地址 zip 包下载 直接解压就好了 exe文件 或则 msi 文件 需要点击 一步一步的安装 目录结构 bin 目录 mysqld : 启动服务端 mysql ：客户端连接服务器 data 目录 存放数据文件 具体安装 mac 1$ brew install mysql window （此处以 zip 为列） 解压 cd 到 bin 目录 mysqld (启动mysql 服务) mysql -uroot -p 回车即可 此时可以进入 mysql 的命令行 环境变量的配置 【计算机】- 【属性】- 【高级系统设置】- 【高级】 - 【环境变量】-【找到 path 一览 将bin 的绝对路径 追加到最后】]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[python之Pycharm配置与安装]]></title>
     <url>%2F2019%2F08%2F05%2Fpython%E4%B9%8BPycharm%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"></content>
