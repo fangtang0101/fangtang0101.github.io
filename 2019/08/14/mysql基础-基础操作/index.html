@@ -94,10 +94,41 @@
 <li><h4 id="授权管理"><a href="#授权管理" class="headerlink" title="授权管理"></a>授权管理</h4></li>
 </ul>
 <h3 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h3><ul>
-<li><h4 id="数值型"><a href="#数值型" class="headerlink" title="数值型"></a>数值型</h4></li>
-<li><h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4></li>
-<li><h4 id="时间类型"><a href="#时间类型" class="headerlink" title="时间类型"></a>时间类型</h4></li>
-<li><h4 id="特殊类型NULL"><a href="#特殊类型NULL" class="headerlink" title="特殊类型NULL"></a>特殊类型NULL</h4></li>
+<li><h4 id="数值型"><a href="#数值型" class="headerlink" title="数值型"></a>数值型</h4><p><code>tinyint</code> <code>smallint</code> <code>mediumint</code> <code>int</code> <code>bigint</code> <code>float</code> <code>double</code> <code>decimal</code></p>
+<p><strong>补充</strong></p>
+<ol>
+<li><p>unsigned 表示 无符号</p>
+</li>
+<li><p>float(M,D) 浮点型</p>
+</li>
+<li><p>decimal(M,D) 定点型 比 float 更加精准</p>
+</li>
+<li><p>M：精度（总位数） D：标度（小数位）</p>
+<p><img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/1.png" alt="Alt text"></p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4><ol>
+<li>char(32) ：最长32，定长， hello（5个字符，剩下的 27 个字符就会被浪费，但是效率高）</li>
+<li>varchar(32)： 最长不能超过32  变长 hello(5个字符，会计算出5 个字符的空间，剩余的 空间不会给出，不浪费空间，但是效率低)</li>
+<li>text ：文本 可以存一篇文章<br><img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/2.png" alt="Alt text"></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><h4 id="时间类型"><a href="#时间类型" class="headerlink" title="时间类型"></a>时间类型</h4><p>  <img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/3.png" alt="Alt text"></p>
+</li>
+</ul>
+<ul>
+<li><p>特殊类型NULL</p>
+<ol>
+<li>NULL 不是假 也不是真，而是空</li>
+<li>NULL 的判断只能用 is null , is not null</li>
+<li>NULL 影响查询速度，一般避免使用NULL</li>
+</ol>
+</li>
 </ul>
 <h3 id="数据表的操作"><a href="#数据表的操作" class="headerlink" title="数据表的操作"></a>数据表的操作</h3><ul>
 <li><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create table 表名(</span><br><span class="line">	列1  列属性[是否为null 默认值]，</span><br><span class="line">    列2  列属性[是否为null 默认值]，</span><br><span class="line">    ...</span><br><span class="line">    列3  列属性 （最后一个 不要有 ,）</span><br><span class="line">)engine = 存储引擎 charset = 字符集</span><br><span class="line">eg:</span><br><span class="line">create table t1(</span><br><span class="line">	id    int auto_increment primary key,		(主键的写法)</span><br><span class="line">	name  char(32) not null default <span class="string">''</span>,			(不为空，默认值为 <span class="string">''</span>)</span><br><span class="line">	create_time datetime not null default <span class="string">'1970-01-01 00:00:00'</span></span><br><span class="line">)engine = Innodb charset = utf8</span><br></pre></td></tr></table></figure>
@@ -137,8 +168,23 @@
 <h3 id="表中具体数据操作"><a href="#表中具体数据操作" class="headerlink" title="表中具体数据操作"></a>表中具体数据操作</h3><ul>
 <li><h4 id="增"><a href="#增" class="headerlink" title="增"></a>增</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名（列1，列2，...,列n） values （值1，值2，...,值n），（值1，值2，...,值n）；</span><br><span class="line">eg：</span><br><span class="line">insert into t1 (name,age) values (&apos;zhangsan&apos;,19),(&apos;lisi&apos;,40);</span><br></pre></td></tr></table></figure>
 
+<p><strong>外键</strong></p>
+<ol>
+<li><p>外键的约束</p>
+<ul>
+<li>外键的列的值 可以重复</li>
+<li>外键的列的值 必须 取关联 表中 列的值（不能凭空生成）</li>
+</ul>
+</li>
+<li><p>外键的创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.创建表的开始 就 设置外键</span><br><span class="line">create table t1(</span><br><span class="line">	id int auto_increment primary key,</span><br><span class="line">	name varchar(32) not null default &apos;&apos;,</span><br><span class="line">	depatr_id int ,</span><br><span class="line">	constraint 外键名(fk_userinfo_department) foreign key (depart_id) references department(id) //设置外键（depart_id） 关联的是 department 表中的 id </span><br><span class="line">)engine=Innodb charset=utf8;</span><br><span class="line">2. 后面追加</span><br><span class="line">alter table userinfo add constraint 外键名（fk_userinfo_department） foreign key(depart_id) references department(id);</span><br></pre></td></tr></table></figure>
 
 
+
+
+
+</li>
+</ol>
 </li>
 </ul>
 <ul>
@@ -207,26 +253,114 @@
 </ul>
 <ul>
 <li><h4 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h4><ul>
-<li>作用 &amp; 场景</li>
-<li>左连接</li>
-<li>右连接</li>
-<li>内连接</li>
+<li><p>作用 &amp; 场景</p>
+<p>很多时候，复杂的场景下，我们需要的 信息 是 多个表 组合起来 的数据，而不是 一张表 提供，这个时候就需要 连接查询</p>
+</li>
+<li><p>左连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from A left join B on A.nid = B.nid;</span><br><span class="line">// A 表所有 列都显示，如果B 中无对应关系 则为 null，B的列某个列 若与A 没有任何联系，那么不显示</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/11.png" alt="Alt text"></p>
+</li>
+<li><p>右连接 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from A right join B on A.nid = B.nid;</span><br><span class="line">// B 表所有 列都显示，如果A 中无对应关系 则为 null，B的列某个列 若与B 没有任何联系，那么不显示</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/12.png" alt="Alt text"></p>
+</li>
+<li><p>内连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from A inner join B on A.nid = B.nid;</span><br><span class="line">//内连接是左右连接的交际</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/10.png" alt="Alt text"></p>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><ul>
-<li>场景 说明</li>
-<li>用法</li>
+<li><p>场景 说明</p>
+<p>很多时候，一句SQL 语句无法得到最后需要的结果，那么此时需要在 第一个SQL 语句得到的结果的基础上 再次 执行 SQL</p>
+<p>也就是 SQL的嵌套</p>
+<p><strong>建议：子查询速度慢，不建议用，而是将子查询 拆成多个 单独的SQL 语句</strong></p>
+</li>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from t1 where id = (sql 语句)</span><br><span class="line">eg：</span><br><span class="line">select ename,deptno,sal</span><br><span class="line">from emp</span><br><span class="line">where deptno=(select deptno from dept where loc=&apos;NEW YORK&apos;)；</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
 </ul>
 <h3 id="存储引擎和字符集"><a href="#存储引擎和字符集" class="headerlink" title="存储引擎和字符集"></a>存储引擎和字符集</h3><ul>
-<li><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4></li>
+<li><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><p><strong>数据库对同样的数据有不同的管理模式，怎么实现的，就是根据 存储引擎实现的</strong></p>
+<ul>
+<li>不同引擎之间的 区别<br> <img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/4.png" alt="Alt text"></li>
+<li>根据场景选择 引擎<ol>
+<li>文章新闻 等安全性要求不高的时候 ，使用 myisam</li>
+<li>订单 资金 账单 火车票等 对安全性要求高的 选 innodb</li>
+<li>对于 临时表中转表，使用 memory ，速度快</li>
+</ol>
+</li>
+</ul>
+<p><strong>MySQL 在5.6 版本以上，默认是使用innodb</strong></p>
+</li>
 <li><h4 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h4></li>
 </ul>
+<blockquote>
+<p>字符集是一套符号和编码的规则，不管哪个 数据库 都存在 字符集选择的问题</p>
+<p>如果在创建之初 没有设置好，那么后期 再改，会有一定的风险</p>
+<p>建议在建设之初就设置好</p>
+</blockquote>
+<ol>
+<li><p>查看所有字符集</p>
+<p><code>show variables like &#39;character_%&#39;</code></p>
+<p> <img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/5.png" alt="Alt text"></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>客户端与服务端 之间的字符集编码的转换（<strong>中间存在一个转换器</strong>）</p>
+<p> <img src="https://github.com/fangtang0101/ft-images/raw/master/mysql/6.png" alt="Alt text"></p>
+<ul>
+<li><p>character_set_client =&gt; utf8 （客户端告诉转换器发过来的是utf8格式的编码）</p>
+</li>
+<li><p>character_set_connection =&gt; utf8 （将客户端传过来的数据 用utf8 来转换）</p>
+</li>
+<li><p>character_set_results =&gt; utf8 （告诉客户端 结果数据的编码 是utf8）</p>
+<p><strong>以上三个字符集可以使用 set names utf8</strong> 来统一进行设置</p>
+</li>
+</ul>
+</li>
+<li><p>为何出现乱码</p>
+<p> <strong>查看每个字符集的详细信息</strong></p>
+<ul>
+<li><p>latin 字符集</p>
+<p><a href="https://github.com/fangtang0101/ft-images/raw/master/mysql/7.png" target="_blank" rel="noopener">Alt text</a></p>
+</li>
+<li><p>gbk 字符集</p>
+<p><a href="https://github.com/fangtang0101/ft-images/raw/master/mysql/8.png" target="_blank" rel="noopener">Alt text</a></p>
+</li>
+<li><p>utf8 字符集</p>
+<p><a href="https://github.com/fangtang0101/ft-images/raw/master/mysql/9.png" target="_blank" rel="noopener">Alt text</a></p>
+</li>
+</ul>
+<p> <strong>结论：每个字符集 存储的大小不一致，所以在转换过程中 会出现丢失数据，导致乱码</strong></p>
+</li>
+<li><p>如何解决乱码问题</p>
+<p> <strong>在转换的过程中，只要有两个不一致，就会出现乱码，所以 只要保持 三个 编码字符集 一致即可</strong></p>
+</li>
+<li><p>设置字符集的两种方法</p>
+<ul>
+<li><p>使用 set names utf8 统一设置<strong>这种方法只会在当前会话串口生效，关闭再打开便失效</strong></p>
+</li>
+<li><p>直接修改 my.ini 文件配置 如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">character-set-server=utf8</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改后 service mysql restart 重新启动 才能生效</strong></p>
+</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fangtang0101.github.io/2019/08/14/mysql基础-基础操作/" data-id="cjzb0bug5000aegji22ef3szk"
+      <a data-url="https://fangtang0101.github.io/2019/08/14/mysql基础-基础操作/" data-id="cjzc988mz000o50jibx3w7vr6"
          class="article-share-link">分享</a>
       
     </footer>
