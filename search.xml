@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql基础-pymysql操作以及安全问题]]></title>
+    <url>%2F2019%2F08%2F15%2Fmysql%E5%9F%BA%E7%A1%80-pymysql%E6%93%8D%E4%BD%9C%E4%BB%A5%E5%8F%8A%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[mysql基础-其他知识]]></title>
     <url>%2F2019%2F08%2F14%2Fmysql%E5%9F%BA%E7%A1%80-%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[视图视图的介绍 什么是视图？事干什么用的 视图就是 一个 select 语句 对象，当执行视图，说白了就是 执行 特定的现钱写好的 select 语句 通过视图，可以展示 基表的部分数据；视图数据来自基表 基表：用来创建视图的表 叫做基表 为什么用视图，优点是什么？ 简单 : 让使用视图的人 更加简单，用户无需关心 基表的 数据结构 等一系列复杂的问题（有点像快捷键） 安全：使用视图，可以控制 使用者 访问他们被允许的查询结果集，因为对 表的每一列无法做到权限的控制，但是通过视图可以实现对 表中的 列 的权限的管理 数据独立：一但视图结构确定，那么就可以屏蔽 表结构变化 对用户的影响，原表增加列 对 视图没有影响；原表修改列名，可以通过修改视图来解决，不会对使用者造成影响 保障数据的安全，提高查询的效率 创建12格式：create view 视图名 as sql语句create view v1 as select nid,name from A where nid &gt; 4; 使用使用视图时，将其当做表进行操作即可，视图和真实的表都会受影响 1select * from v1 删除12格式： drop view 视图名drop view v1 修改当表的数据结构改变或则其他变动的时候，可以通过修改视图，使用者使用还是一样，结果就是修改之后的结果1234格式：alter view 视图名 as sql 语句egalter view v1 asselect A.nid ,B.name from A left join B on A.id = B.nid left join C on A.id = C.nid where A.id&gt;2 and C.nid &lt;5; 触发器索引事务事务就是一组操作，要么都成功，要么都失败 事务的ACID特性 Atomicity：原子性，原子即为最小的单位，代表此任务 无法再细分了，就是最小的单元 Consistency：一致性，就是事务发生后，数据依然匹配 Isolation：隔离性 , 就是事务的操作 对 其他的事务是不可见的 Durabillity：持久性，当事务发生后，其影响会保留下来，无法撤销，只能通过 “补偿性事务” 来抵消之前的错误 事务的用法1234567891011121314开启事务（start transaction）执行sql操作（普通的sql语句）提交/回滚（commit/roolback）eg:start transaction;update users set money=900 where id=1;(success)update users set money=900 where id=2;(fail)rollback;egSTART TRANSACTION;SELECT @A:=SUM(salary) FROM table1 WHERE type=1;UPDATE table2 SET summary=@A WHERE type=1;COMMIT; 事务支持引擎Innodb 和 MyISamd的区别 Innodb 支持事务，myISam 不支持 版本5.5 默认 Innodb 5.5 以下默认 MyIsam Innodb 支持行锁（并发量大使用） MyISam表锁 函数执行计划慢日志查询 当某个sql语句执行比较慢，那么我们可以设置，用日志 记录下来 12345678show_query_log = OFF // 是否开启慢日志long_query_time =2 // 时间限制，超过此时间，则记录show_query_log_file = /usr/slow.log // 日志文件地址show variables like &apos;%query%&apos; // 查看当前配置的信息//修改set global 变量名 = 值]]></content>
   </entry>
   <entry>
     <title><![CDATA[mysql基础-基础操作]]></title>

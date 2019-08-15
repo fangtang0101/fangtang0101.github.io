@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fangtang0101.github.io/"/>
-  <updated>2019-08-14T06:05:57.141Z</updated>
+  <updated>2019-08-15T08:03:49.800Z</updated>
   <id>https://fangtang0101.github.io/</id>
   
   <author>
@@ -17,13 +17,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>mysql基础-pymysql操作以及安全问题</title>
+    <link href="https://fangtang0101.github.io/2019/08/15/mysql%E5%9F%BA%E7%A1%80-pymysql%E6%93%8D%E4%BD%9C%E4%BB%A5%E5%8F%8A%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/"/>
+    <id>https://fangtang0101.github.io/2019/08/15/mysql基础-pymysql操作以及安全问题/</id>
+    <published>2019-08-15T08:03:49.000Z</published>
+    <updated>2019-08-15T08:03:49.800Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>mysql基础-其他知识</title>
     <link href="https://fangtang0101.github.io/2019/08/14/mysql%E5%9F%BA%E7%A1%80-%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/"/>
     <id>https://fangtang0101.github.io/2019/08/14/mysql基础-其他知识/</id>
     <published>2019-08-14T06:05:57.000Z</published>
-    <updated>2019-08-14T06:05:57.141Z</updated>
+    <updated>2019-08-15T08:02:41.861Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><h4 id="视图的介绍"><a href="#视图的介绍" class="headerlink" title="视图的介绍"></a>视图的介绍</h4><ul><li><p>什么是视图？事干什么用的</p><blockquote><p>视图就是 一个  select 语句 对象，当执行视图，说白了就是 执行 特定的现钱写好的 select 语句</p><p>通过视图，可以展示 基表的部分数据；视图数据来自基表</p><p>基表：用来创建视图的表 叫做基表</p></blockquote></li><li><p>为什么用视图，优点是什么？</p><ol><li>简单 : 让使用视图的人 更加简单，用户无需关心 基表的 数据结构 等一系列复杂的问题（有点像快捷键）</li><li>安全：使用视图，可以控制 使用者 访问他们被允许的查询结果集，因为对 表的每一列无法做到权限的控制，但是通过视图可以实现对 表中的 列 的权限的管理</li><li>数据独立：一但视图结构确定，那么就可以屏蔽 表结构变化 对用户的影响，原表增加列 对 视图没有影响；原表修改列名，可以通过修改视图来解决，不会对使用者造成影响</li></ol><p><strong>保障数据的安全，提高查询的效率</strong></p></li></ul><h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">格式：create view 视图名 as sql语句</span><br><span class="line">create view v1 as select nid,name from A where nid &gt; 4;</span><br></pre></td></tr></table></figure><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p><strong>使用视图时，将其当做表进行操作即可，视图和真实的表都会受影响</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from v1</span><br></pre></td></tr></table></figure><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">格式： drop view 视图名</span><br><span class="line">drop view v1</span><br></pre></td></tr></table></figure><h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><h4 id="当表的数据结构改变或则其他变动的时候，可以通过修改视图，使用者使用还是一样，结果就是修改之后的结果"><a href="#当表的数据结构改变或则其他变动的时候，可以通过修改视图，使用者使用还是一样，结果就是修改之后的结果" class="headerlink" title="当表的数据结构改变或则其他变动的时候，可以通过修改视图，使用者使用还是一样，结果就是修改之后的结果"></a><strong>当表的数据结构改变或则其他变动的时候，可以通过修改视图，使用者使用还是一样，结果就是修改之后的结果</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式：alter view 视图名 as sql 语句</span><br><span class="line">eg</span><br><span class="line">alter view v1 as</span><br><span class="line">select A.nid ,B.name from A left join B on A.id = B.nid left join C on A.id = C.nid where A.id&gt;2 and C.nid &lt;5;</span><br></pre></td></tr></table></figure><h3 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h3><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p><strong>事务就是一组操作，要么都成功，要么都失败</strong></p><h4 id="事务的ACID特性"><a href="#事务的ACID特性" class="headerlink" title="事务的ACID特性"></a>事务的ACID特性</h4><ul><li>Atomicity：原子性，原子即为最小的单位，代表此任务 无法再细分了，就是最小的单元</li><li>Consistency：一致性，就是事务发生后，数据依然匹配</li><li>Isolation：隔离性 , 就是事务的操作 对 其他的事务是不可见的</li><li>Durabillity：持久性，当事务发生后，其影响会保留下来，无法撤销，只能通过 “补偿性事务” 来抵消之前的错误</li></ul><h4 id="事务的用法"><a href="#事务的用法" class="headerlink" title="事务的用法"></a>事务的用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">开启事务（start transaction）</span><br><span class="line">执行sql操作（普通的sql语句）</span><br><span class="line">提交/回滚（commit/roolback）</span><br><span class="line">eg:</span><br><span class="line">start transaction;</span><br><span class="line">update users set money=900 where id=1;(success)</span><br><span class="line">update users set money=900 where id=2;(fail)</span><br><span class="line">rollback;</span><br><span class="line"></span><br><span class="line">eg</span><br><span class="line">START TRANSACTION;</span><br><span class="line">SELECT @A:=SUM(salary) FROM table1 WHERE type=1;</span><br><span class="line">UPDATE table2 SET summary=@A WHERE type=1;</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure><h4 id="事务支持引擎"><a href="#事务支持引擎" class="headerlink" title="事务支持引擎"></a>事务支持引擎</h4><p><strong>Innodb 和 MyISamd的区别</strong></p><ul><li>Innodb 支持事务，myISam 不支持</li><li>版本5.5 默认 Innodb  5.5 以下默认 MyIsam</li><li>Innodb 支持行锁（并发量大使用） MyISam表锁</li></ul><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h3 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h3><h3 id="慢日志查询"><a href="#慢日志查询" class="headerlink" title="慢日志查询"></a>慢日志查询</h3><p> <strong>当某个sql语句执行比较慢，那么我们可以设置，用日志 记录下来</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">show_query_log = OFF // 是否开启慢日志</span><br><span class="line">long_query_time =2// 时间限制，超过此时间，则记录</span><br><span class="line">show_query_log_file = /usr/slow.log  // 日志文件地址</span><br><span class="line"></span><br><span class="line">show variables like &apos;%query%&apos;// 查看当前配置的信息</span><br><span class="line"></span><br><span class="line">//修改</span><br><span class="line">set global 变量名 = 值</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;视图&quot;&gt;&lt;a href=&quot;#视图&quot; class=&quot;headerlink&quot; title=&quot;视图&quot;&gt;&lt;/a&gt;视图&lt;/h3&gt;&lt;h4 id=&quot;视图的介绍&quot;&gt;&lt;a href=&quot;#视图的介绍&quot; class=&quot;headerlink&quot; title=&quot;视图的介绍&quot;&gt;&lt;/a&gt;视图的介
+      
     
     </summary>
     
