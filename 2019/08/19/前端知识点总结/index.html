@@ -208,68 +208,159 @@
 </li>
 </ol>
 <ol start="5">
-<li><p><code>Proxy</code> 与 <code>defineproperty</code> 比较 （Vue 3.0 之后会使用<code>Proxy</code> 代替 <code>defineproperty</code>）</p>
+<li><p>原型、原型链和继承</p>
+<p><strong>问题：还是没有完全懂</strong></p>
 <ol>
-<li><p>两者都是 实现   <strong>数据的劫持</strong>的一种方式，而数据劫持 是实现 <strong>双向绑定</strong>的途径</p>
-</li>
-<li><p><code>object.defineProperty</code> 的缺陷：</p>
+<li><p>原型 与 原型链</p>
 <ul>
-<li>监听的是 对象的属性，所以需要 一个个遍历所有属性</li>
-<li><strong>无法监听数组</strong>，Vue 中支持的 八种数组的方法，也是作者自己在内部 单独自定义监听的</li>
+<li><p><strong>所有对象（引用类型）都有一个 <code>__proto__</code> 属性 ，值即为  原型（一个普通对象而已）</strong></p>
+</li>
+<li><p><strong>所有函数都有一个<code>prototype</code>属性，值即为  原型（一个普通对象而已）</strong></p>
+</li>
+<li><p>*<em>对象（引用类型）的 <code>__proto__</code> === 其构造函数的 <code>prototype</code> *</em></p>
+</li>
+<li><p><strong>原型链的顶端是  <code>Object.prototype.__proto__ === null</code>，也就是 null</strong></p>
+</li>
 </ul>
 </li>
 </ol>
 </li>
 </ol>
-<ol start="3">
-<li><p><code>Proxy</code>的优势：</p>
+<pre><code>**原型链：**当一个对象（引用类型）使用点语法的时候，首先从自己的内部寻找此属性，若没有从其原型（一个普通对象）寻找改属性，若没有，再次从该原型的原型中去寻找，直到顶层 null，若都没有，返回 `undefined`</code></pre><ol start="2">
+<li><p>继承</p>
+<p><strong>js的继承实际上就是改变 构造函数的 原型（将原型指向 父类的一个实例）</strong></p>
 <ul>
-<li>监听的是 整个对象，不需要遍历属性</li>
-<li><strong>可以监听数组</strong></li>
-<li>劫持 对象的 更多方法是 <code>defineProperty</code>不具备的  ，比如 <code>apply has</code> 等 13 中方法</li>
-<li><strong>问题：浏览器的兼容问题，所以 Vue 3.0 才使用 <code>Proxy</code></strong></li>
+<li><p>js中的继承说明：</p>
+<blockquote>
+<ol>
+<li>js是一门面向对象的语言，但是  js 中没有严格意义的 类 与 实例的说法。而是通过 一个原型 的对象 达到 “继承”的目的。</li>
+</ol>
+<p>所以说 js 是比较另类的语言</p>
+<ol start="2">
+<li><code>ES6</code> 中 开始有了 <code>class  let const</code> 等概念</li>
+<li><strong>趋势：更加接近 面向对象语言的 语法与概念 ，也更加严谨</strong></li>
+</ol>
+</blockquote>
+</li>
+<li><p>手写一个 js 继承 TODO</p>
+</li>
 </ul>
-<p><a href="https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf" target="_blank" rel="noopener">详细地址链接</a></p>
 </li>
 </ol>
 <ol start="6">
-<li><p>浅拷贝 和 深拷贝</p>
+<li><p>模块化</p>
+<p><strong>根据历史知识来理解与记忆</strong></p>
+<p>*<em>对全局变量的影响 *</em></p>
+<p><strong>命名的冲突与相互替换</strong></p>
+<p><strong>依赖的管理</strong></p>
+<p><strong>同步与异步 是否预下载，是否预执行</strong></p>
 <ol>
-<li><p>浅拷贝 <code>object.assign</code></p>
-<p><strong>只复制最外层的属性以及值，对于 值时 引用类型，也只是 地址的复制</strong></p>
-</li>
-<li><p>深拷贝</p>
+<li><p>有哪些模块化，发展流程是什么（演变历史）</p>
 <ul>
-<li><p><code>JSON.parse</code> 方法 也称为  <strong>序列化与反序列化</strong></p>
-<p><strong>问题：</strong></p>
-<ol>
-<li><strong>函数 正则 undefined symbol  Date</strong> 等特殊对象无法 实现克隆 （<code>undefined sybol fucntion</code> 直接忽略）</li>
-<li>抛弃对象的 <code>constructor</code>，直接指向 <code>Object</code></li>
-<li>循环引用，会报错</li>
-</ol>
+<li><p>起初 <code>js</code> 语言很弱，逻辑主要在 后端，所以没有什么模块的概念 都是  直接 写 <code>function</code></p>
+<p><strong>污染全局的变量、变量容易被外界改变、管理不方便</strong></p>
 </li>
-<li><p>自己代码实现（思路以及代码）</p>
-<ol>
-<li>思路：<ul>
-<li>创建一个函数，用于判断 数据类型</li>
-<li>copy函数，里面先判断类型，如果约到 date 正则 函数 undefined symbol 单独处理，其余递归循环每个 值，递归调用</li>
-</ul>
+<li><p>匿名函数 + 闭包  典型的是 <strong>jQuery 等其他插件</strong></p>
 </li>
-<li>代码：</li>
-</ol>
+<li><p><strong>node.js</strong>的兴起，前端可以没有 模块，但是 后端必须要有 模块  <strong>commonJs</strong> （nodejs社区创建，开始叫 serverjs）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var abc = require(&apos;xxx&apos;) // 导入</span><br><span class="line">// 导出  是一个对象</span><br><span class="line">module.export = &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ul>
 </li>
 </ol>
 </li>
-<li><p>xxoo</p>
+</ol>
+<pre><code>  **特点：导入是同步的，因为后端加载文件是在本地服务器，所以无所谓**
+
+  **问题：推广到前端的时候，需要异步，因为前端是通过 网络请求来下来模块的**
+
+- `node.js` 社区 出现了 分歧，有三个分支
+
+  1. 第一个分支：在原有的`commonJs`的基础上 做兼容,新增 `Transport`规范   **`Browserify` `compont`、 **`es6-module-transpiler`**等 **
+
+     **通过工具 将现有node模块 转成 浏览器能用的模块**
+
+  2. 第二个分支：制定了`AMD` 标准（也就是异步）**`requestJs`**
+
+     **特点：预先下载、预先执行**
+
+  3. 第三个分支：`module2.0`，算是折中吧，融合上面两个的特点 `FlyScript `(推广不好，后期自己全部删除了)
+
+     **特点：预先下载，懒执行**
+
+- 基于第三个方案的基础上 又融合了很多其他的方案  **`CMD` 国内大牛 淘宝的 玉伯开发 `seaJs`**
+
+  **特点：预先下载，懒执行。其他 语法上面的区别**
+
+  **注意：后期发展 `AMD CMD` 都有相互兼容对方的优点**
+
+- `ES6` 算是原生支持 模块化，但是浏览器还没有支持，期待中，目前需要 通过 `babel-loader`编译
+
+  1. 语法
+
+     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 导出</span><br><span class="line">export &#123;&#125;</span><br><span class="line">//导入</span><br><span class="line">import &#123;x,y&#125; from xx   </span><br><span class="line">import * as model form xx</span><br></pre></td></tr></table></figure>
+
+
+
+
+  2. 特点：
+
+     - `Commonjs` 模块运行时加载，`ES6`模块是编译时就输出接口
+     - `Commonjs`输出的为 **值的浅拷贝** ；`ES6`输出的是 **值引用**</code></pre><ol start="2">
+<li>各自的 区别是什么</li>
+</ol>
+<ol start="7">
+<li><p>js 中 异步 （比较大的模块）</p>
+<ol>
+<li>js 中异步的概念简述 （<strong>js 单线程</strong>）</li>
+<li>有哪些异步，简述各自的 特点（<code>callback Promise async wait</code>）</li>
+<li>定时器函数（<code>setTimeut setinterval requestAnimationFrame</code>）</li>
+<li>callback</li>
+<li>Promise (<strong>手写一个<code>Primise</code></strong>)</li>
+<li>Generator</li>
+<li><code>async awit</code></li>
+</ol>
+</li>
+</ol>
+<ol start="8">
+<li><p>Event Loop （由 js 异步 延展到 js的 Event Loop）</p>
+<ol>
+<li>node 与 浏览器中的 Event Loop 不是一样的，差异在哪里</li>
+</ol>
+</li>
+<li><p>浏览器——基础知识</p>
+<ol>
+<li>BOM 操作 </li>
+<li>DOM 操作</li>
+<li>事件（<strong>事件绑定与代理</strong>）</li>
+<li>Ajax</li>
+<li>跨域问题</li>
+<li>存储问题</li>
+<li>缓存问题</li>
+</ol>
+</li>
+<li><p>浏览器——安全问题</p>
+</li>
+<li><p>浏览器——渲染机制</p>
+</li>
+<li><p>性能优化（浏览器+js ）</p>
+</li>
+<li><p><code>webpack</code> 性能优化</p>
+</li>
+<li><p>HTTP 协议</p>
+</li>
+<li><p>设计模式</p>
+</li>
+<li><p>框架 Vue</p>
 </li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fangtang0101.github.io/2019/08/19/前端知识点总结/" data-id="cjzwayejg000ri8ji15jfzaht"
+      <a data-url="https://fangtang0101.github.io/2019/08/19/前端知识点总结/" data-id="cjzwce1ea000r0ojiw7uarhy7"
          class="article-share-link">分享</a>
       
     </footer>
@@ -279,6 +370,15 @@
   
     
   <nav class="article-nav">
+    
+      <a href="/2019/08/29/hello-world/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            Hello World
+          
+        </div>
+      </a>
     
     
       <a href="/2019/08/15/mysql基础-pymysql操作以及安全问题/" class="article-nav-link">
